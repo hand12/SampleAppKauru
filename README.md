@@ -1,24 +1,13 @@
-# README
+# Railsアプリ学習用のサンプルアプリ
+非エンジニアがRailsの勉強をしたいとのことで、学習用のサンプルアプリを作成することにした。
+https://kawlu.com/market
+こちらのサイトのデザインを真似て作る。
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Database
+articlesテーブル
+- title: String null false
+- body: Text
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+usersテーブル
+- email: String null false
+- password: String null false
