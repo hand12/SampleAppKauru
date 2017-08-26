@@ -1,0 +1,14 @@
+#contents
+  .content
+    .title
+      | 投稿フォーム
+    .detail
+      | 記事を投稿してください
+    .new-form
+      = form_for @article do |f|
+        .title-form
+          = f.text_field :title, placeholder: "タイトルを入力してください"
+        .body-form
+          = f.text_area :body, placeholder: "本文を入力してください", rows: "15"
+        .submit-form
+          = f.submit "送信する"

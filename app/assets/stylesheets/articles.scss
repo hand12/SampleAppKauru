@@ -26,7 +26,12 @@ $kauru-sub-color: #61ace5;
   text-align: center;
   padding: 10px 15px;
   border-bottom: 2px solid darken($color, 10);
-  box-shadow: 0 2px 2px -2px #666;;
+  box-shadow: 0 2px 2px -2px #666;
+  &:hover {
+    transform: translateY(2px);
+    border-bottom: 2px solid $color;
+    cursor: pointer;
+  }
 }
 
 @mixin clearfix() {
@@ -39,6 +44,10 @@ $kauru-sub-color: #61ace5;
 
 html {
   color: $font-color;
+  body {
+    padding: 0;
+    margin: 0;
+  }
 }
 #header {
   $header-height: 60px;
@@ -73,7 +82,6 @@ html {
           padding: 5px 10px;
           margin-left: 10px;
           font-size: 16px;
-          font-weight: bolder;
           color: white;
         }
         .login {
@@ -84,6 +92,10 @@ html {
         }
         .new {
           background-color: $kauru-main-color;
+          a {
+            color: white;
+            text-decoration: none;
+          }
         }
       }
     }
@@ -93,7 +105,7 @@ html {
 #top-view {
   width: 100vw;
   height: 500px;
-  background-color: $kauru-main-color;
+  background: linear-gradient(to bottom right, $kauru-main-color, 70%, $kauru-sub-color);
   box-shadow: 0 1px 2px 1px #999;
   .contents {
     width: 60%;
@@ -115,10 +127,6 @@ html {
     }
     .button {
       @include button($kauru-sub-color);
-      &:hover {
-        border-top: 2px solid $kauru-main-color;
-        border-bottom: 2px solid $kauru-sub-color;
-      }
     }
   }
 }
@@ -174,10 +182,6 @@ html {
     .button {
       @include button($kauru-sub-color);
       width: 300px;
-      &:hover {
-        border-top: 2px solid lighten($kauru-sub-color, 30);
-        border-bottom: 2px solid $kauru-sub-color;
-      }
     }
     .articles {
       margin: 0 auto;
@@ -223,6 +227,40 @@ html {
             padding-top: 10px;
           }
         }
+      }
+    }
+    .new-form {
+      width: 60vw;
+      box-sizing: border-box;
+      margin: 20px auto;
+      padding: 20px;
+      border-radius: 2.5px;
+      border: 1px solid $border-color;
+      text-align: center;
+      input {
+        padding: 10px;
+        font-size: 20px;
+        width: 50%;
+        border: none;
+        margin-bottom: 50px;
+        background-color: darken(white, 10);
+        &:focus {
+          outline: 0;
+        }
+      }
+      textarea {
+        width: 50%;
+        padding: 10px;
+        font-size: 16px;
+        border: none;
+        background-color: darken(white, 10);
+        &:focus {
+          outline: 0;
+        }
+      }
+      input[type=submit] {
+        box-sizing: border-box;
+        @include button($kauru-main-color);
       }
     }
   }
