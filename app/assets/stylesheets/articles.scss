@@ -1,0 +1,232 @@
+$header-font-color: #666;
+$border-color: #e8e8e8;
+$background-color: #f2f2f2;
+$font-color: #444;
+$show-review-font-color: #666;
+$gray-font-color: #999;
+$kauru-main-color: #00d1c1;
+$kauru-sub-color: #61ace5;
+
+@mixin content-detail() {
+  $font-size: 16px;
+  text-align: center;
+  font-size: $font-size;
+  padding: 20px;
+  line-height: $font-size * 1.5;
+}
+
+@mixin button($color) {
+  border-radius: 2.5px;
+  background-color: $color;
+  color: white;
+  font-size: 26px;
+  width: 200px;
+  margin: 0 auto;
+  margin-top: 80px;
+  text-align: center;
+  padding: 10px 15px;
+  border-bottom: 2px solid darken($color, 10);
+  box-shadow: 0 2px 2px -2px #666;;
+}
+
+@mixin clearfix() {
+  &:after {
+    display: block;
+    content: '';
+    clear: both;
+  }
+}
+
+html {
+  color: $font-color;
+}
+#header {
+  $header-height: 60px;
+  width: 100vw;
+  height: $header-height;
+  border-bottom: 1px solid $border-color;
+  #contents {
+    width: 60%;
+    margin: 0 auto;
+    #left_contents {
+      display: inline-block;
+      float: left;
+      .title {
+        color: $kauru-main-color;
+        font-size: 24px;
+        font-weight: bold;
+        line-height: $header-height;
+      }
+    }
+    #right_contents {
+      display: inline-block;
+      float: right;
+      .flex_box {
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: flex-end;
+        align-items: center;
+        height: $header-height;
+        .content {
+          box-sizing: border-box;
+          border-radius: 2.5px;
+          padding: 5px 10px;
+          margin-left: 10px;
+          font-size: 16px;
+          font-weight: bolder;
+          color: white;
+        }
+        .login {
+          background-color: $kauru-main-color;
+        }
+        .signup {
+          background-color: $kauru-sub-color;
+        }
+        .new {
+          background-color: $kauru-main-color;
+        }
+      }
+    }
+  }
+}
+
+#top-view {
+  width: 100vw;
+  height: 500px;
+  background-color: $kauru-main-color;
+  box-shadow: 0 1px 2px 1px #999;
+  .contents {
+    width: 60%;
+    margin: 0 auto;
+    .title {
+      padding-top: 100px;
+      font-size: 72px;
+      color: white;
+      font-weight: bold;
+      text-align: center;
+      text-shadow: 0 2px 2px #666;
+    }
+    .detail {
+      font-size: 26px;
+      color: white;
+      text-align: center;
+      text-shadow: 0 2px 2px #666;
+      padding: 10px;
+    }
+    .button {
+      @include button($kauru-sub-color);
+      &:hover {
+        border-top: 2px solid $kauru-main-color;
+        border-bottom: 2px solid $kauru-sub-color;
+      }
+    }
+  }
+}
+
+#contents {
+  width: 100vw;
+  .content {
+    box-sizing: border-box;
+    width: 100%;
+    margin: 0 auto;
+    padding: 50px;
+    .flex-box {
+      margin: 0 auto;
+      width: 60%;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      padding-top: 80px;
+      .item {
+        box-sizing: border-box;
+        padding: 20px;
+        .f-title {
+          font-size: 20px;
+          font-weight: bolder;
+          text-align: center;
+          padding: 10px;
+        }
+        .f-image-box {
+          width: 100%;
+          height: 300px;
+          overflow: hidden;
+          img {
+            width: 100%;
+            height: auto;
+          }
+        }
+        .f-detail {
+          @include content-detail();
+        }
+      }
+    }
+    .title {
+      font-size: 24px;
+      font-weight: bolder;
+      text-align: center;
+      padding-top: 100px;
+    }
+    .detail {
+      width: 30%;
+      margin: 0 auto;
+      @include content-detail();
+    }
+    .button {
+      @include button($kauru-sub-color);
+      width: 300px;
+      &:hover {
+        border-top: 2px solid lighten($kauru-sub-color, 30);
+        border-bottom: 2px solid $kauru-sub-color;
+      }
+    }
+    .articles {
+      margin: 0 auto;
+      padding: 50px 0;
+      width: 60%;
+      list-style: none;
+      .article {
+        width: 100%;
+        padding: 20px;
+        padding-bottom: 50px;
+        border-bottom: 1px solid darken($border-color, 20);
+        @include clearfix();
+        transition: 0.2s;
+        &:hover {
+          cursor: pointer;
+          background-color: darken(white, 10)
+        }
+        .a-image-box {
+          display: inline-block;
+          float: left;
+          box-sizing: border-box;
+          $image-size: 20%;
+          width: $image-size;
+          height: $image-size;
+          overflow: hidden;
+          img {
+            width: 100%;
+            height: auto;
+          }
+        }
+        .a-heading {
+          display: inline-block;
+          float: left;
+          box-sizing: border-box;
+          width: 80%;
+          padding: 0 20px;
+          .a-title {
+            font-size: 18px;
+            font-weight: bolder;
+          }
+          .a-detail {
+            font-size: 16px;
+            padding-top: 10px;
+          }
+        }
+      }
+    }
+  }
+  .light-background-color-sub {
+    background-color: lighten($kauru-sub-color, 30);
+  }
+}
