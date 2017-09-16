@@ -8,6 +8,8 @@
       = form_for @article do |f|
         .title-form
           = f.text_field :title, placeholder: "タイトルを入力してください"
+        .image-form
+          = f.file_field :image
         .body-form
           = f.text_area :body, placeholder: "本文を入力してください", rows: "15"
         .submit-form

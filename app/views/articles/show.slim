@@ -1,0 +1,12 @@
+#show_content
+  #content
+    #title
+      = @article.title
+    #image
+      = image_tag @article.image
+    #body
+      = simple_format @article.body
+    = link_to articles_path do
+      #buttons
+        .button
+          | トップに戻る

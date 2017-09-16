@@ -105,34 +105,51 @@ html {
 #top-view {
   width: 100vw;
   height: 500px;
-  background: linear-gradient(to bottom right, $kauru-main-color, 70%, $kauru-sub-color);
+  // background: linear-gradient(to bottom right, $kauru-main-color, 70%, $kauru-sub-color);
+  // background-image: url("city.jpg");
+  background-image: url("city-picture.jpg");
+  background-position: center -180px;
+  background-size: cover;
   box-shadow: 0 1px 2px 1px #999;
+  position: relative;
   .contents {
     width: 60%;
+    height: 100%;
     margin: 0 auto;
-    .title {
-      padding-top: 100px;
-      font-size: 72px;
-      color: white;
-      font-weight: bold;
-      text-align: center;
-      text-shadow: 0 2px 2px #666;
-    }
-    .detail {
-      font-size: 26px;
-      color: white;
-      text-align: center;
-      text-shadow: 0 2px 2px #666;
-      padding: 10px;
-    }
-    .button {
-      @include button($kauru-sub-color);
+    .messagebox {
+      width: 50%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      right: 0;
+      padding: 50px;
+      box-sizing: border-box;
+      opacity: 0.8;
+      // background: linear-gradient(to bottom right, $kauru-main-color, 70%, $kauru-sub-color);
+      background-color: $kauru-main-color;
+      .title {
+        padding-top: 100px;
+        font-size: 72px;
+        color: white;
+        font-weight: bold;
+        // text-shadow: 0 2px 2px #666;
+      }
+      .detail {
+        font-size: 20px;
+        color: white;
+        // text-shadow: 0 2px 2px #666;
+        padding: 10px;
+      }
+      .button {
+        @include button($kauru-sub-color);
+      }
     }
   }
 }
 
 #contents {
   width: 100vw;
+  background-color: $background-color;
   .content {
     box-sizing: border-box;
     width: 100%;
@@ -189,6 +206,7 @@ html {
       width: 60%;
       list-style: none;
       .article {
+        position: relative;
         width: 100%;
         padding: 20px;
         padding-bottom: 50px;
@@ -218,6 +236,7 @@ html {
           box-sizing: border-box;
           width: 80%;
           padding: 0 20px;
+          color: $font-color;
           .a-title {
             font-size: 18px;
             font-weight: bolder;
@@ -225,7 +244,16 @@ html {
           .a-detail {
             font-size: 16px;
             padding-top: 10px;
+            height: 120px;
+            overflow: hidden;
           }
+        }
+        .a-date {
+          color: lighten($font-color, 20);
+          position: absolute;
+          right: 40px;
+          bottom: 50px;
+          font-size: 12px;
         }
       }
     }
@@ -237,6 +265,7 @@ html {
       border-radius: 2.5px;
       border: 1px solid $border-color;
       text-align: center;
+      background-color: white;
       input {
         padding: 10px;
         font-size: 20px;
@@ -258,6 +287,9 @@ html {
           outline: 0;
         }
       }
+      input[type=file] {
+        font-size: 12px;
+      }
       input[type=submit] {
         box-sizing: border-box;
         @include button($kauru-main-color);
@@ -266,5 +298,91 @@ html {
   }
   .light-background-color-sub {
     background-color: lighten($kauru-sub-color, 30);
+  }
+  .background-color-white {
+    background-color: white;
+  }
+}
+
+#post {
+  position: fixed;
+  right: 10px;
+  bottom: 10px;
+  background-image: url("post.png");
+  background-position: center;
+  background-size: cover;
+  width: 200px;
+  height: 200px;
+  box-shadow: 0 0 2px 0 #999;
+  #message {
+    box-sizing: border-box;
+    position: fixed;
+    bottom: 150px;
+    right: 150px;
+    width: 150px;
+    height: 100px;
+    line-height: 100px;
+    text-align: center;
+    font-size: 14px;
+    border-radius: 50%;
+    background-color: white;
+    box-shadow: 2px 2px 0 0 #999;
+  }
+}
+
+#show_content {
+  background-color: $background-color;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  #content {
+    margin: 0 auto;
+    width: 60vw;
+    min-width: 600px;
+    background-color: white;
+    border: 1px solid $border-color;
+    #title {
+      box-sizing: border-box;
+      font-size: 36px;
+      padding: 20px;
+      width: 100%;
+      font-family: "游ゴシック体";
+      &:after {
+        box-sizing: border-box;
+        display: block;
+        content: '';
+        // width: 300px;
+        border-bottom: 2px solid $kauru-main-color;
+      }
+    }
+    #image {
+      width: 100%;
+      overflow: hidden;
+      img {
+        width: 100%;
+        max-height: 648px;
+        object-fit: cover;
+      }
+    }
+    #body {
+      padding: 20px;
+      font-size: 15px;
+      line-height: 27px;
+    }
+    #buttons {
+      padding: 20px;
+      .button {
+        display: inline-block;
+        padding: 10px 20px;
+        border-radius: 4px;
+        margin-right: 10px;
+        color: white;
+        background-color: $kauru-main-color;
+        border-bottom: 2px solid darken($kauru-main-color, 20);
+        &:hover {
+          border-bottom: none;
+          transform: translateY(2px);
+        }
+      }
+    }
   }
 }

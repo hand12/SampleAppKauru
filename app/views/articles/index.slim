@@ -1,14 +1,15 @@
 #top-view
   .contents
-    .title
-      | スマート不動産
-    .detail
-      | 安心・スマート・しかもお得な次世代型中古マンション購入・売却サービス
-    .button
-      | 相談する
+    .messagebox
+      .title
+        | スマート不動産
+      .detail
+        | 安心・スマート・しかもお得な次世代型中古マンション購入・売却サービス
+      / .button
+      /   | 相談する
 
 #contents
-  .content
+  .content.background-color-white
     .flex-box
       - 3.times do
         .item
@@ -30,19 +31,28 @@
     .button
       | 今すぐチェック！
 
-  .content
+  .content.background-color-white
     .title
       | 記事一覧
     .detail
       | マンション購入に役立つ知識を不動産のプロが毎日お届けします。マンションジャーナルの記事の中でも特に人気のある記事をご紹介します。
     ul.articles
-      - 5.times do
-        li.article
-          .a-image-box
-            img src="https://kawlu.com/journal/wp-content/uploads/2017/08/shutterstock_162743195.jpg"
-          .a-heading
-            .a-title
-              | 収納を綺麗に見せるために気をつけるべき6つのポイントとは
-            .a-detail
-              | いつも片付けているのに、どうしても雑然として片付いていないように見える。心当たりがあるあなたは、キレイに見せるコツがつかめていないのかもしれません。
-              | この記事で紹介する6つのコツを参考にして、効率的で見栄えのよい片付けができるようになりましょう。
+      - @articles.each do |article|
+        = link_to article_path(article) do
+          li.article
+            .a-image-box
+              = image_tag article.image
+            .a-heading
+              .a-title
+                = article.title
+              .a-detail
+                = simple_format article.body
+            .a-date
+              | 投稿日: 
+              = article.created_at.strftime('%Y年%m月%d日')
+#post
+  #message
+    | ご相談は
+    a href="#"
+      | こちら
+    | まで
